@@ -1,0 +1,173 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wasi Connector\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-15 04:40+0000\n"
+"PO-Revision-Date: 2018-05-15 15:26+0000\n"
+"Last-Translator: admin-wasi <admin@demo.wasi.co>\n"
+"Language-Team: Español\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: api/class-wasi-api.php:47 public/views/single-property.php:54
+msgid "For Rent"
+msgstr ""
+
+#: api/class-wasi-api.php:48 public/views/single-property.php:48
+msgid "For Sale"
+msgstr ""
+
+#: api/class-wasi-api.php:49
+msgid "For Transfer"
+msgstr ""
+
+#: api/class-wasi-api.php:56
+msgid "Daily"
+msgstr ""
+
+#: api/class-wasi-api.php:57
+msgid "Weekly"
+msgstr ""
+
+#: api/class-wasi-api.php:58
+msgid "Biweekly"
+msgstr ""
+
+#: api/class-wasi-api.php:59
+msgid "Monthly"
+msgstr ""
+
+#: api/class-wasi-api.php:70
+msgid "Property Type not found!"
+msgstr ""
+
+#: admin/views/settings_page.php:2
+msgid "Wasi.co"
+msgstr ""
+
+#: public/views/search.php:6
+msgid "Looking for:"
+msgstr ""
+
+#: public/views/search.php:9 public/views/search.php:21
+#: public/views/search.php:48 public/views/search.php:59
+msgid "All"
+msgstr ""
+
+#: public/views/search.php:18
+msgid "Type:"
+msgstr ""
+
+#: public/views/search.php:45
+msgid "Bedrooms:"
+msgstr ""
+
+#: public/views/search.php:56
+msgid "Bathrooms:"
+msgstr ""
+
+#: public/views/search.php:68
+msgid "Prices range:"
+msgstr ""
+
+#: public/views/search.php:71
+msgid "Price min"
+msgstr ""
+
+#: public/views/search.php:74
+msgid "Price max"
+msgstr ""
+
+#: public/views/search.php:80
+msgid "Area range:"
+msgstr ""
+
+#: public/views/search.php:83
+msgid "Area min"
+msgstr ""
+
+#: public/views/search.php:86
+msgid "Area max"
+msgstr ""
+
+#: public/views/single-property.php:68
+msgid "Property type"
+msgstr ""
+
+#: public/views/single-property.php:72
+msgid "Reference"
+msgstr ""
+
+#: public/views/single-property.php:76
+msgid "Maintenance Fee"
+msgstr ""
+
+#: public/views/single-property.php:80
+msgid "Bedrooms"
+msgstr ""
+
+#: public/views/single-property.php:84
+msgid "Bathrooms"
+msgstr ""
+
+#: public/views/single-property.php:88
+msgid "Garages"
+msgstr ""
+
+#: public/views/single-property.php:92
+msgid "Floor"
+msgstr ""
+
+#: public/views/single-property.php:96
+msgid "Year built"
+msgstr ""
+
+#: public/views/single-property.php:100
+msgid "Area"
+msgstr ""
+
+#: public/views/single-property.php:106
+msgid "Stratum"
+msgstr ""
+
+#: public/views/single-property.php:115
+msgid "Amenities"
+msgstr ""
+
+#: public/views/single-property.php:130
+msgid "Public facilities"
+msgstr ""
+
+#: public/views/single-property.php:145
+msgid "Video"
+msgstr ""
+
+#: public/views/single-property.php:159
+msgid "Location"
+msgstr ""
+
+#. Name of the plugin
+msgid "Wasi Connector"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Plugin to convert your website into a Real Estate Listing site using your "
+"properties on Wasi.co"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://api.wasi.co/"
+msgstr ""
+
+#. Author of the plugin
+msgid "WasiCo, Inc"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "wasi.co"
+msgstr ""

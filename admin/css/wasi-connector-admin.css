@@ -1,0 +1,14 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ .wasi-settings .form-table th {
+    width: 140px;
+ }
+ .wasi_input {
+    width: 250px;
+    padding: 8px 10px;
+ }
+ #clear-cache-results {
+    margin-left: 10px;
+ }
