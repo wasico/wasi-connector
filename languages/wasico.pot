@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wasi Connector\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-15 15:26+0000\n"
+"POT-Creation-Date: 2018-06-16 00:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,153 +14,280 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: api/class-wasi-api.php:47 public/views/single-property.php:56
+#. ID
+#: admin/class-wasi-admin.php:156
+msgid "Single Property Page"
+msgstr ""
+
+#. ID
+#: admin/class-wasi-admin.php:164
+msgid "UI Library"
+msgstr ""
+
+#. ID
+#: admin/class-wasi-admin.php:173
+msgid "Clear Cache"
+msgstr ""
+
+#: admin/class-wasi-admin.php:181
+msgid "Required settings to ensure the correct working of the plugin"
+msgstr ""
+
+#: admin/class-wasi-admin.php:185
+#, php-format
+msgid ""
+"Connect with your Wasi account by using your API access data (you can learn "
+"how to use it here: %s)"
+msgstr ""
+
+#: admin/class-wasi-admin.php:223
+msgid ""
+"Ensure to put the shortcode [wasi-properties] in the content of that page"
+msgstr ""
+
+#: admin/class-wasi-admin.php:239
+msgid ""
+"The content of this page will change dinamically according to each property"
+msgstr ""
+
+#: admin/class-wasi-admin.php:246
+msgid "Load Bootstrap 3"
+msgstr ""
+
+#: admin/class-wasi-admin.php:248
+msgid ""
+"If you enabled this checkbox, the UI Library Bootstrap 3 will be loaded.<br "
+"/>Use only if your theme is not using bootstrap."
+msgstr ""
+
+#: admin/class-wasi-admin.php:254
+msgid "Clear plugin cache"
+msgstr ""
+
+#: admin/class-wasi-admin.php:257
+msgid "Clear internal plugin cache if your Wasi properties have been updated"
+msgstr ""
+
+#: api/class-wasi-api.php:51 public/views/single-property.php:58
 msgid "For Rent"
 msgstr ""
 
-#: api/class-wasi-api.php:48 public/views/single-property.php:50
+#: api/class-wasi-api.php:52 public/views/single-property.php:52
 msgid "For Sale"
 msgstr ""
 
-#: api/class-wasi-api.php:49
+#: api/class-wasi-api.php:53
 msgid "For Transfer"
 msgstr ""
 
-#: api/class-wasi-api.php:56
+#: api/class-wasi-api.php:60
 msgid "Daily"
 msgstr ""
 
-#: api/class-wasi-api.php:57
+#: api/class-wasi-api.php:61
 msgid "Weekly"
 msgstr ""
 
-#: api/class-wasi-api.php:58
+#: api/class-wasi-api.php:62
 msgid "Biweekly"
 msgstr ""
 
-#: api/class-wasi-api.php:59
+#: api/class-wasi-api.php:63
 msgid "Monthly"
 msgstr ""
 
-#: api/class-wasi-api.php:70
+#: api/class-wasi-api.php:74
 msgid "Property Type not found!"
+msgstr ""
+
+#: api/class-wasi-api.php:149
+msgid "Client not found"
+msgstr ""
+
+#: public/widget.contact.php:109
+msgid "Thank you for your message! We will contact you shortly."
 msgstr ""
 
 #: admin/views/settings_page.php:2
 msgid "Wasi.co"
 msgstr ""
 
-#: public/views/single-property.php:70
-msgid "Property type"
+#: public/views/contact-form.php:6
+msgid "Your name"
 msgstr ""
 
-#: public/views/single-property.php:74
-msgid "Reference"
+#: public/views/contact-form.php:11
+msgid "Your email"
 msgstr ""
 
-#: public/views/single-property.php:78
-msgid "Maintenance Fee"
+#: public/views/contact-form.php:16
+msgid "Your phone"
 msgstr ""
 
-#: public/views/single-property.php:82
-msgid "Bedrooms"
+#: public/views/contact-form.php:22
+msgid "Your country"
 msgstr ""
 
-#: public/views/single-property.php:86
-msgid "Bathrooms"
+#: public/views/contact-form.php:25
+msgid "Select country"
 msgstr ""
 
-#: public/views/single-property.php:90
-msgid "Garages"
+#: public/views/contact-form.php:32
+msgid "Region"
 msgstr ""
 
-#: public/views/single-property.php:94
-msgid "Floor"
+#: public/views/contact-form.php:41
+msgid "City"
 msgstr ""
 
-#: public/views/single-property.php:98
-msgid "Year built"
+#: public/views/contact-form.php:52
+msgid "Message"
 msgstr ""
 
-#: public/views/single-property.php:102
-msgid "Area"
+#: public/views/contact-form.php:55
+msgid "I'm interested on this property."
 msgstr ""
 
-#: public/views/single-property.php:108
-msgid "Stratum"
-msgstr ""
-
-#: public/views/single-property.php:117
-msgid "Amenities"
-msgstr ""
-
-#: public/views/single-property.php:132
-msgid "Public facilities"
-msgstr ""
-
-#: public/views/single-property.php:147
-msgid "Video"
-msgstr ""
-
-#: public/views/single-property.php:161
-msgid "Location"
-msgstr ""
-
-#: public/views/search.php:6
-msgid "Looking for:"
-msgstr ""
-
-#: public/views/search.php:9 public/views/search.php:21
-#: public/views/search.php:48 public/views/search.php:59
-msgid "All"
-msgstr ""
-
-#: public/views/search.php:18
-msgid "Type:"
-msgstr ""
-
-#: public/views/search.php:45
-msgid "Bedrooms:"
-msgstr ""
-
-#: public/views/search.php:56
-msgid "Bathrooms:"
-msgstr ""
-
-#: public/views/search.php:68
-msgid "Prices range:"
-msgstr ""
-
-#: public/views/search.php:71
-msgid "Price min"
-msgstr ""
-
-#: public/views/search.php:74
-msgid "Price max"
-msgstr ""
-
-#: public/views/search.php:80
-msgid "Area range:"
-msgstr ""
-
-#: public/views/search.php:83
-msgid "Area min"
-msgstr ""
-
-#: public/views/search.php:86
-msgid "Area max"
-msgstr ""
-
-#: public/views/properties.php:6
+#: public/views/properties.grid.php:5 public/views/properties.php:3
 msgid "Properties not found!"
 msgstr ""
 
-#: public/views/properties.php:7
+#: public/views/properties.grid.php:6 public/views/properties.php:4
 msgid "Try again with different filters."
 msgstr ""
 
-#: public/views/properties.php:10
+#: public/views/properties.grid.php:9 public/views/properties.php:7
 msgid "Searching properties..."
+msgstr ""
+
+#: public/views/properties.grid.php:33 public/views/properties.php:20
+msgid "Rooms"
+msgstr ""
+
+#: public/views/properties.grid.php:34 public/views/properties.php:22
+#: public/views/single-property.php:88
+msgid "Bathrooms"
+msgstr ""
+
+#: public/views/properties.grid.php:37
+msgid "More info"
+msgstr ""
+
+#: public/views/properties.php:28
+msgid "Rent price"
+msgstr ""
+
+#: public/views/properties.php:32
+msgid "Sale price"
+msgstr ""
+
+#: public/views/properties.php:36 public/views/single-property.php:104
+msgid "Area"
+msgstr ""
+
+#: public/views/search.php:6
+msgid "Keyword:"
+msgstr ""
+
+#: public/views/search.php:8
+msgid "Keyword"
+msgstr ""
+
+#: public/views/search.php:13
+msgid "Looking for:"
+msgstr ""
+
+#: public/views/search.php:16 public/views/search.php:28
+#: public/views/search.php:55 public/views/search.php:66
+msgid "All"
+msgstr ""
+
+#: public/views/search.php:25
+msgid "Type:"
+msgstr ""
+
+#: public/views/search.php:52
+msgid "Bedrooms:"
+msgstr ""
+
+#: public/views/search.php:63
+msgid "Bathrooms:"
+msgstr ""
+
+#: public/views/search.php:75
+msgid "Prices range:"
+msgstr ""
+
+#: public/views/search.php:78
+msgid "Price min"
+msgstr ""
+
+#: public/views/search.php:81
+msgid "Price max"
+msgstr ""
+
+#: public/views/search.php:87
+msgid "Area range:"
+msgstr ""
+
+#: public/views/search.php:90
+msgid "Area min"
+msgstr ""
+
+#: public/views/search.php:93
+msgid "Area max"
+msgstr ""
+
+#: public/views/search.php:100
+msgid "Searching"
+msgstr ""
+
+#: public/views/single-property.php:72
+msgid "Property type"
+msgstr ""
+
+#: public/views/single-property.php:76
+msgid "Reference"
+msgstr ""
+
+#: public/views/single-property.php:80
+msgid "Maintenance Fee"
+msgstr ""
+
+#: public/views/single-property.php:84
+msgid "Bedrooms"
+msgstr ""
+
+#: public/views/single-property.php:92
+msgid "Garages"
+msgstr ""
+
+#: public/views/single-property.php:96
+msgid "Floor"
+msgstr ""
+
+#: public/views/single-property.php:100
+msgid "Year built"
+msgstr ""
+
+#: public/views/single-property.php:110
+msgid "Stratum"
+msgstr ""
+
+#: public/views/single-property.php:119
+msgid "Amenities"
+msgstr ""
+
+#: public/views/single-property.php:134
+msgid "Public facilities"
+msgstr ""
+
+#: public/views/single-property.php:149
+msgid "Video"
+msgstr ""
+
+#: public/views/single-property.php:163
+msgid "Location"
 msgstr ""
 
 #. Name of the plugin
