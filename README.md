@@ -18,7 +18,7 @@ Si no tiene unas Credenciales de API, o no sabe cómo generarlas, por favor cont
 
 1. Subir el plugin `wasi-connector` a la carpeta `/wp-content/plugins/`
 2. Activar el plugin a través del menú lateral 'Plugins' en WordPress
-**3. Crear las páginas para:** Listado completo de propiedades y para una Propiedad única  
+3. **Crear las páginas para:** Listado completo de propiedades y para una Propiedad única  
 4. En dichas páginas agregar los shortcodes necesarios (Ver sección de shortcodes)
 5. En el menú de Ajustes (Settings), ir a las configuración de Wasi y configurar todos los valores.
 
@@ -26,16 +26,22 @@ Si no tiene unas Credenciales de API, o no sabe cómo generarlas, por favor cont
 ## Configuración del API Key (Llave de API) ##
 
 En el menú de Ajustes (Settings), ir al submenú de “API Wasi.co” y guardar allí los dos valores principales: **ID Company y Wasi Token.**
-Ambos deben ser generados desde tu propia cuenta de Wasi. Puedes aprender más sobre la API aqui: https://api.wasi.co/guide/es/first_steps/access.html
+Ambos deben ser generados desde tu propia cuenta de Wasi. 
+
+Puedes aprender más sobre la API aqui: https://api.wasi.co/guide/es/first_steps/access.html
 
 
 ## Ajustes principales del plugin ##
 
 En el menú WP de Ajustes, submenú de “API Wasi.co”, además de la API, se encuentran las siguientes configuraciones:
-El valor numérico del total de propiedades a mostrar por cada página cuando hayan resultados de búsquedas.
-Una lista desplegable que permite definir cuál será la página donde se mostrará todo el listado completo de propiedades y los resultados de las búsquedas. Esta página debe estar creada con anterioridad y debe tener en su contenido el shortcode [wasi-properties]  (Ver configuraciones de shortcodes)
-Otra lista de páginas para seleccionar la página encargada de mostrar la información de cada propiedad de manera independiente. El contenido de esta página será ignorado por completo y se mostrará la información de la propiedad que sea pasada desde el listado de propiedades.
-Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica “Bootstrap 3.6” la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
+
+- El valor numérico del total de propiedades a mostrar por cada página cuando hayan resultados de búsquedas.
+
+- Una lista desplegable que permite definir cuál será la página donde se mostrará todo el listado completo de propiedades y los resultados de las búsquedas. Esta página debe estar creada con anterioridad y debe tener en su contenido el shortcode [wasi-properties]  (Ver configuraciones de shortcodes).
+
+- Otra lista de páginas para seleccionar la página encargada de mostrar la información de cada propiedad de manera independiente. El contenido de esta página será ignorado por completo y se mostrará la información de la propiedad que sea pasada desde el listado de propiedades.
+
+- Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica “Bootstrap 3.6” la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
 
 
 
@@ -52,6 +58,7 @@ Ejemplo:
 `[wasi-properties layout="grid" featured="true" limit="9" btn-class="search-btn" tags-bg-color="#db2723"]`
 
 Estos atributos son:
+
 **- layout:** que puede ser "list" o "grid"  (el grid siempre es de 3 columnas) Por defecto es tipo “list”  
 **- featured:** que puede ser "true" o "false". Sirve para mostrar solo las propiedades marcadas como destacadas. Por defecto es false.  
 **- limit:** Es opcional, define cuantas propiedades va a mostrar. El valor por defecto aplicar es el que esté definido en las configuraciones iniciales del plugin (Inicialmente 10)  
@@ -63,6 +70,7 @@ Estos atributos son:
 
 El buscador de propiedades puede ser mostrado a través de un Widget o a través de un shortcode en alguna página aparte.
 Tanto el Widget como el shortcode contienen los mismos atributos:
+
 **- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: “row”  
 **- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”  
 La forma más recomendada de mostrar el buscador es a través de un widget en algún sidebar del theme.
@@ -71,6 +79,7 @@ La forma más recomendada de mostrar el buscador es a través de un widget en al
 
 Cada propiedad tiene un formulario de contacto propio,. El cual permite que los visitantes diligencien un formulario y sus datos sean asignados al Agente Inmobiliario a cargo de la propiedad, además de que le llegará un e-mail con la respectiva notificación.
 Este widget cuenta con los mismos atributos del widget del buscador:
+
 **- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: “row”  
 **- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”  
 
