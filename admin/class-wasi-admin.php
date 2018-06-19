@@ -175,6 +175,13 @@ class Wasi_Connector_Admin {
             $this->settings_slug, // Page
             'wasi_settings_wp' // Section
         );
+        add_settings_field(
+            'wasi_cache_duration', // ID
+            __('Cache Duration', $this->context), // Title 
+            array( $this, 'render_cache_duration' ), // Callback
+            $this->settings_slug, // Page
+            'wasi_settings_wp' // Section           
+        );
 	}
 
     public function render_wp_settings_info() {
@@ -257,6 +264,15 @@ class Wasi_Connector_Admin {
         echo __('Clear internal plugin cache if your Wasi properties have been updated', 'wasico');
         echo '</small>';
     }
+    public function render_cache_duration($field) {
+        printf(
+            '<input class="wasi_input" type="text" id="cache_duration" name="wasi_api_data[cache_duration]" value="%s" />',
+            isset( $this->options['cache_duration'] ) ? esc_attr( $this->options['cache_duration']) : '7'
+        );
+        echo '<br /> <small>';
+        echo __('Cache duration in days', 'wasico');
+        echo '</small>';
+    }
 
 
 	/**
@@ -285,6 +301,17 @@ class Wasi_Connector_Admin {
             $new_input['wasi_bootstrap'] = 'true';
         else {
             $new_input['wasi_bootstrap'] = 'false';
+        }
+
+        if( isset( $input['cache_duration'] ) ) {
+            $new_input['cache_duration'] = sanitize_text_field( $input['cache_duration'] );
+            if(!is_numeric($new_input['cache_duration'])) {
+                $new_input['cache_duration'] = 7;
+            }
+
+            if($new_input['cache_duration']<1 || $new_input['cache_duration']>365) {
+                $new_input['cache_duration'] = 7;
+            }
         }
 
         return $new_input;

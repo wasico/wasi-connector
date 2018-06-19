@@ -11,7 +11,7 @@
             <div class="listing-row-image" v-bind:style="prop.thumbnail">
                 <a v-bind:href="'/<?php echo $atts['propertyPage']; ?>/'+prop.id_property" class="listing-row-image-link"></a>
                 <!-- <div class="listing-row-label-top listing-row-label-top-left">Featured</div> -->
-                <div class="listing-row-label-bottom">{{property_types[prop.id_property_type].name}}</div>
+                <div class="listing-row-label-bottom">{{getPropertyType(prop.id_property_type)}}</div>
             </div>
             <div class="listing-row-properties">
                 <h3 class="listing-row-title"><a v-bind:href="'/<?php echo $atts['propertyPage']; ?>/'+prop.id_property" >{{prop.title}}</a></h3>

@@ -114,6 +114,18 @@ function wasiLoadProperties() {
  	});
 }
 
+function getPropertyType(id) {
+	var id_type = parseInt(id);
+	var keys = Object.keys(propertyTypes);
+	for (var i = keys.length - 1; i >= 0; i--) {
+		if(propertyTypes[keys[i]].id_property_type===id_type) {
+			// console.log('Found: ' + propertyTypes[keys[i]].name);
+			return propertyTypes[keys[i]].name;
+		}
+	}
+	return '-n/a-';
+}
+
 function wasiPaginate(page) {
 	this.current_page = page;
 	wasiLoadProperties();
@@ -196,7 +208,8 @@ function initWasiPropertiesList() {
 		  	paginate: wasiPaginate,
 		  	previousPage: wasiPreviousPage,
 		  	nextPage: wasiNextPage,
-		  	activePageClass: wasiActivePageClass
+		  	activePageClass: wasiActivePageClass,
+		  	getPropertyType: getPropertyType
 		  },
 		  filters: {
 		  	formatNumber: function(value) {

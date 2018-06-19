@@ -24,13 +24,16 @@ class WasiAPICient {
         add_action( 'wp_ajax_nopriv_wasi_api', $ajaxWasi );
     }
 
-
     public function ajaxAPI() {
         if( !isset($_POST['endpoint']) ) {
             echo "Invalid endpoint params!";
             wp_die();
         }
         $filters = isset($_POST['api_data']) ? $_POST['api_data'] : array();
+        if( isset($filters['for_type']) ) {
+            $filters[ $filters['for_type'] ] = true;
+            unset( $filters['for_type'] );
+        }
         $p = $this->callAPI($_POST['endpoint'], $filters);
         echo json_encode($p);
         wp_die();
@@ -174,7 +177,12 @@ class WasiAPICient {
 
             $createTrans = false;
             $url_trans_name = 'wasi'.str_replace('/', '-', $url);
-            
+
+            // cache duration from options of default 7 days:
+            $cache_days = isset($this->api_data['cache_duration']) ? $this->api_data['cache_duration'] : 7;
+            if( $cache_days<=0 ) {
+                $cache_days = 1;
+            }
             // by default enable trans for requests without params or only with pagination (take param)
             if(empty($params) || (count($params)===1 && isset($params['take']))) {
 
@@ -202,6 +210,7 @@ class WasiAPICient {
             unset($params['property_single_page']);
             unset($params['wasi_max_per_page']);
             unset($params['wasi_bootstrap']);
+            unset($params['cache_duration']);
 
             // $ip = $_SERVER['REMOTE_ADDR'];
             
@@ -242,7 +251,7 @@ class WasiAPICient {
 
                     unset($res->status);
 
-                    $expiration = 604800; // 3600*24*7; // WEEK_IN_SECONDS
+                    $expiration = 3600 * 24 * $cache_days; // 3600*24*7; // WEEK_IN_SECONDS
                     set_transient($url_trans_name, $res, $expiration);
                 }
                 return $res;
