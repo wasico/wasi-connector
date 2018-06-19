@@ -193,22 +193,23 @@ class Wasi_Connector_Public {
 		}
 
 		// add data before JS plugin
-		$js_vars = $this->createPublicJSvars();
-		wp_add_inline_script($this->plugin_name, $js_vars, 'before');
+		// $js_vars = ;
+		add_action( 'wp_footer', array($this, 'createPublicJSvars'));
+		// wp_add_inline_script($this->plugin_name, $js_vars, 'before');
 	}
 
 	// Create public JS Variables to pass to external script
-	private function createPublicJSvars () {
+	public function createPublicJSvars () {
 		$is_properties_page = $this->isPropertiesPage();
-		$vars = 'var ajax_url="'.admin_url( 'admin-ajax.php' ).'";'."\n";
-		$vars.= 'var is_properties_page='.$is_properties_page.';'."\n";
+		$vars = 'var ajax_url="'.admin_url( 'admin-ajax.php' ).'";';
+		$vars.= 'var is_properties_page='.$is_properties_page.';';
 
-		$vars.= 'var wasi_properties_page="'.get_post($this->api_data['properties_page'])->post_name.'";'."\n";
+		$vars.= 'var wasi_properties_page="'.get_post($this->api_data['properties_page'])->post_name.'";';
 
 		if(!isset($this->api_data['wasi_max_per_page'])) {
 			$this->api_data['wasi_max_per_page'] = 10; // default option according to the API
 		}
-		$vars.= 'var properties_per_page='.$this->api_data['wasi_max_per_page'].';'."\n";
+		$vars.= 'var properties_per_page='.$this->api_data['wasi_max_per_page'].';';
 
 		if ( is_page() ) {
 			$id_property = $this->getSingleIdProperty();
@@ -222,7 +223,8 @@ class Wasi_Connector_Public {
 			}
 		}
 
-		return $vars;
+		// return $vars;
+		echo '<script>'.$vars.'</script>';
 	}
 
 	private function isPropertiesPage() {
