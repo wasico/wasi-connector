@@ -90,7 +90,7 @@ Este widget cuenta con los mismos atributos del widget del buscador:
 Por defecto el plugin viene en idioma Inglés, pero cuenta con la plantilla de cadenas y todo el soporte para agregar cualquier idioma, ya sea a través de algún plugin o con un programa de edición de cadenas.
 
 El método más recomendado para traducir este plugin es utilizar un plugin de traducción. El más recomendado es Loco Translate (https://wordpress.org/plugins/loco-translate/).
-Al instalar ese plugin, en la sección de plugins estará activo el plugin de Wasi para ser traducido. Allí se podrá ver todas las cadenas de texto y agregar las traducciones de cada un de las que sean necesarias.
+Al instalar ese plugin, en la sección de plugins estará activo el plugin de Wasi para ser traducido. Allí se podrá ver todas las cadenas de texto y agregar las traducciones de cada uno de las que sean necesarias.
 
 
 ## Preguntas Frecuentes ##
