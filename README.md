@@ -101,7 +101,7 @@ Si claro, desde tu plantilla/theme de wordpress puedes sobrescribir todos los es
 
 ### Si hago cambios en mis propiedades de wasi, ¿porque no se ven en mi sitio? ###
 
-El plugin tiene una memoria temporal que se refresca cada 7 días, si quieres refrescarla  manualmente, puedes hacerlo dentro de las configuraciones del plugin usando el botón de "Clear plugin Cache"
+El plugin tiene una memoria temporal que se refresca cada 24 horas, si quieres refrescarla  manualmente, puedes hacerlo dentro de las configuraciones del plugin usando el botón de "Clear plugin Cache"
 
 ### Mi pregunta no se ha respondido aquí ###
 
