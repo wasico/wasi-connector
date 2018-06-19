@@ -43,7 +43,7 @@ En el menú WP de Ajustes, submenú de “API Wasi.co”, además de la API, se 
 
 - Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica “Bootstrap 3.6” la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
 
--La duración (en días) de la memoria cache temporal del plugin. Por defecto viene de 7 días, pero puede cambiar a un valor entre 1 y 365. Esto tendrá efecto solo si después de guardar el valor, se limpia la cache con el botón "Clear Plugin Cache" para eliminar los datos actuales y refrescar toda la cache.
+- La duración (en días) de la memoria cache temporal del plugin. Por defecto viene de 7 días, pero puede cambiar a un valor entre 1 y 365. Esto tendrá efecto solo si después de guardar el valor, se limpia la cache con el botón "Clear Plugin Cache" para eliminar los datos actuales y refrescar toda la cache.
 
 
 
