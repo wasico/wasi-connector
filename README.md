@@ -12,7 +12,7 @@ Plugin que permite conectar y mostrar un listado de propiedades inmobiliarias de
 
 Este plugin permite a un sitio web en WordPress conectarse a la API de https://wasi.co y convertirlo en un sitio web especializado para ofertar inmuebles.
 
-Para esto necesita tener una cuenta en Wasi y obtener las “Credenciales de API“ en el menú “Configuración > Ajustes Generales“,  sí no encuentra cómo generarlas, por favor contáctenos al correo soporte@wasi.co
+Para esto necesita tener una cuenta en Wasi y obtener las “Credenciales de API“ en el menú “Configuración > Ajustes Generales“,  sí no encuentra cómo generarlas por favor contáctenos al correo soporte@wasi.co
 
 
 ## Instalación ##
