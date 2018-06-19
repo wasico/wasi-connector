@@ -10,8 +10,9 @@ Plugin que permite conectar y mostrar un listado de propiedades inmobiliarias de
 
 ## Descripción ##
 
-Este plugin permite conectar un sitio web a la API de https://wasi.co para convertir este sitio web en un sitio de Inmuebles tipo inmobiliaria usando las propiedades en la cuenta de usuario de wasi.co (Usando sus credenciales de API).
-Si no tiene unas Credenciales de API, o no sabe cómo generarlas, por favor contáctenos al correo soporte@wasi.co
+Este plugin permite a un sitio web en WordPress conectarlo a la API de https://wasi.co y convertirlo en un sitio web especializado para ofertar inmuebles.
+
+Para esto necesita tener una cuenta en Wasi y obtener las “Credenciales de API“, sí no sabe cómo generarlas, por favor contáctenos al correo soporte@wasi.co
 
 
 ## Instalación ##
@@ -25,15 +26,15 @@ Si no tiene unas Credenciales de API, o no sabe cómo generarlas, por favor cont
 
 ## Configuración del API Key (Llave de API) ##
 
-En el menú de Ajustes (Settings), ir al submenú de “API Wasi.co” y guardar allí los dos valores principales: **ID Company y Wasi Token.**
-Ambos deben ser generados desde tu propia cuenta de Wasi. 
+En el menú de “Ajustes (Settings)“, ir al submenú de “API Wasi.co” y guardar allí los dos valores principales: **ID Company y Wasi Token.**
+Ambos deben ser generados desde tu propia cuenta de Wasi en el menú “Configuración > Ajustes Generales“.
 
 Puedes aprender más sobre la API aqui: https://api.wasi.co/guide/es/first_steps/access.html
 
 
 ## Ajustes principales del plugin ##
 
-En el menú WP de Ajustes, submenú de “API Wasi.co”, además de la API, se encuentran las siguientes configuraciones:
+En el menú de WP de Ajustes, submenú de “API Wasi.co”, además de la API, se encuentran las siguientes configuraciones:
 
 - El valor numérico del total de propiedades a mostrar por cada página cuando hayan resultados de búsquedas.
 
@@ -43,7 +44,7 @@ En el menú WP de Ajustes, submenú de “API Wasi.co”, además de la API, se 
 
 - Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica “Bootstrap 3.6” la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
 
-- La duración (en días) de la memoria cache temporal del plugin. Por defecto viene de 7 días, pero puede cambiar a un valor entre 1 y 365. Esto tendrá efecto solo si después de guardar el valor, se limpia la cache con el botón "Clear Plugin Cache" para eliminar los datos actuales y refrescar toda la cache.
+- La duración (en días) de la memoria cache temporal del plugin. Por defecto viene de 1 días, pero puede cambiar a un valor entre 1 y 365. Esto tendrá efecto solo si después de guardar el valor, se limpia la cache con el botón "Clear Plugin Cache" para eliminar los datos actuales y refrescar toda la cache.
 
 
 
@@ -79,7 +80,7 @@ La forma más recomendada de mostrar el buscador es a través de un widget en al
 
 ### Widget para el formulario de Contacto ###
 
-Cada propiedad tiene un formulario de contacto propio,. El cual permite que los visitantes diligencien un formulario y sus datos sean asignados al Agente Inmobiliario a cargo de la propiedad, además de que le llegará un e-mail con la respectiva notificación.
+Cada propiedad tiene un formulario de contacto propio. El cual permite que los visitantes diligencien un formulario y sus datos sean asignados al Agente Inmobiliario a cargo de la propiedad, además de que le llegará un e-mail con la respectiva notificación.
 Este widget cuenta con los mismos atributos del widget del buscador:
 
 **- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: “row”  
@@ -87,7 +88,7 @@ Este widget cuenta con los mismos atributos del widget del buscador:
 
 ## Traducción del plugin ##
 
-Por defecto el plugin viene en idioma Inglés, pero cuenta con la plantilla de cadenas y todo el soporte para agregar cualquier idioma, ya sea a través de algún plugin o con un programa de edición de cadenas.
+Por defecto el plugin viene en idioma inglés, pero cuenta con la plantilla de cadenas y todo el soporte para agregar cualquier idioma, ya sea a través de algún plugin o con un programa de edición de cadenas.
 
 El método más recomendado para traducir este plugin es utilizar un plugin de traducción. El más recomendado es Loco Translate (https://wordpress.org/plugins/loco-translate/).
 Al instalar ese plugin, en la sección de plugins estará activo el plugin de Wasi para ser traducido. Allí se podrá ver todas las cadenas de texto y agregar las traducciones de cada uno de las que sean necesarias.
@@ -101,7 +102,7 @@ Si claro, desde tu plantilla/theme de wordpress puedes sobrescribir todos los es
 
 ### Si hago cambios en mis propiedades de wasi, ¿porque no se ven en mi sitio? ###
 
-El plugin tiene una memoria temporal que se refresca cada 24 horas, si quieres refrescarla  manualmente, puedes hacerlo dentro de las configuraciones del plugin usando el botón de "Clear plugin Cache"
+El plugin tiene una memoria temporal que se refresca cada 1 día, si quieres refrescarla  manualmente, puedes hacerlo dentro de las configuraciones del plugin usando el botón de "Clear plugin Cache"
 
 ### Mi pregunta no se ha respondido aquí ###
 
