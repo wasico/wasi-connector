@@ -1,5 +1,5 @@
 # Wasi Connector #
-**Contributors:** jalejo08  
+**Contributors:** jalamprea  
 **Tags:** comments, spam  
 **Requires at least:** 4.0  
 **Tested up to:** 4.9.6  
@@ -43,6 +43,8 @@ En el menú WP de Ajustes, submenú de “API Wasi.co”, además de la API, se 
 
 - Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica “Bootstrap 3.6” la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
 
+-La duración (en días) de la memoria cache temporal del plugin. Por defecto viene de 7 días, pero puede cambiar a un valor entre 1 y 365. Esto tendrá efecto solo si después de guardar el valor, se limpia la cache con el botón "Clear Plugin Cache" para eliminar los datos actuales y refrescar toda la cache.
+
 
 
 ## Configuraciones de Shortcodes y Widgets ##
@@ -83,6 +85,12 @@ Este widget cuenta con los mismos atributos del widget del buscador:
 **- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: “row”  
 **- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”  
 
+## Traducción del plugin ##
+
+Por defecto el plugin viene en idioma Inglés, pero cuenta con la plantilla de cadenas y todo el soporte para agregar cualquier idioma, ya sea a través de algún plugin o con un programa de edición de cadenas.
+
+El método más recomendado para traducir este plugin es utilizar un plugin de traducción. El más recomendado es Loco Translate (https://wordpress.org/plugins/loco-translate/).
+Al instalar ese plugin, en la sección de plugins estará activo el plugin de Wasi para ser traducido. Allí se podrá ver todas las cadenas de texto y agregar las traducciones de cada un de las que sean necesarias.
 
 
 ## Preguntas Frecuentes ##
