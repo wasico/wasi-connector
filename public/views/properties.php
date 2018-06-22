@@ -27,11 +27,11 @@
                 <dl>
                     <dt v-if="prop.for_rent=='true' && prop.rent_price>0"><?php _e('Rent price', 'wasico'); ?></dt>
                     <dd v-if="prop.for_rent=='true' && prop.rent_price>0">
-                        <span>{{prop.rent_price | formatNumber}}</span>
+                        <span>{{prop.rent_price | formatNumber}} {{prop.iso_currency}}</span>
                     </dd>
                     <dt v-if="prop.for_sale=='true' && prop.sale_price>0"><?php _e('Sale price', 'wasico'); ?></dt>
                     <dd v-if="prop.for_sale=='true' && prop.sale_price>0">
-                        <span>{{prop.sale_price | formatNumber}}</span>
+                        <span>{{prop.sale_price | formatNumber}} {{prop.iso_currency}}</span>
                     </dd>
                     <dt><?php _e('Area', 'wasico') ?></dt>
                     <dd>{{prop.area}} {{prop.unit_built_area_label}}</dd>

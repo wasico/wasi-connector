@@ -20,6 +20,7 @@ function renderWasiSearch($parent, $instance) {
         
     $propertyStatus = $parent->getAPIClient()->getPropertyStatus();
     $propertyTypes = $parent->getAPIClient()->getPropertyTypes();
+    $wasiCountries = $parent->getAPIClient()->getCountries();
     // $atts['propertyTypes'] = $parent->getAPIClient()->getPropertyTypes();
     // $atts['propertyPage'] = get_post($parent->getWasiData()['property_single_page'])->post_name;
 

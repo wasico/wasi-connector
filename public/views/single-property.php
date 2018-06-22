@@ -47,16 +47,17 @@
                 ?>
             </h3>
             <div class="pull-right pricing">
+                <?php $currency_var = $single_property->iso_currency==='EUR' ? '€' : '$' ?>
                 <?php if($single_property->for_sale==='true' && $single_property->sale_price!=='0') : ?>
                     <h3><?php
                     echo __('For Sale', 'wasico');
-                    echo ' $'.number_format($single_property->sale_price, 0); ?></h3>
+                    echo ' '.$currency_var.number_format($single_property->sale_price, 0); ?> <span class="currency"><?php 
+                    echo $single_property->iso_currency ?></span></h3>
                 <?php endif; ?>
-
                 <?php if($single_property->for_rent==='true' && $single_property->rent_price!=='0') : ?>
                     <h3><?php
                     echo __('For Rent', 'wasico');
-                    echo ' $'.number_format($single_property->rent_price, 0); ?></h3>
+                    echo ' '.$currency_var.number_format($single_property->rent_price, 0); ?></h3>
                 <?php endif; ?>
             </div>
             <div class="clear clearfix"> </div>

@@ -18,8 +18,8 @@
                 style="<?php echo !empty($atts['tags-bg-color']) ? 'background-color:'.$atts['tags-bg-color'] : ''; ?>">{{property_types[prop.id_property_type].name}}</div>
             <div class="listing-column-label-special"
                 style="<?php echo !empty($atts['tags-bg-color']) ? 'background-color:'.$atts['tags-bg-color'] : ''; ?>">
-                <span v-if="prop.for_sale=='true' && prop.sale_price>0">{{prop.sale_price | formatNumber}}</span>
-                <span v-if="prop.for_rent=='true' && prop.rent_price>0">{{prop.rent_price | formatNumber}}</span>
+                <span v-if="prop.for_sale=='true' && prop.sale_price>0">{{prop.sale_price | formatNumber}} {{prop.iso_currency}}</span>
+                <span v-if="prop.for_rent=='true' && prop.rent_price>0">{{prop.rent_price | formatNumber}} {{prop.iso_currency}}</span>
                 <span v-if="prop.sale_price==0 && prop.rent_price==0">0</span>
             </div>
 

@@ -1,6 +1,10 @@
 // Vue App for Listing and Widgets:
 var wasiApp, wasiSearchApp;
 
+var default_regions = [{id_region:0, name: default_region_name}];
+var default_cities = [{id_city:0, name: default_city_name}];
+var default_zones = [{id_zone:0, name: default_zone_name}];
+
 // Vue App shared data:
 var wasi_data = {
 	loading: true,
@@ -20,11 +24,13 @@ var wasi_data = {
 	contact: {
 		id_country: 0,
 		id_region: 0,
-		id_city: 0
+		id_city: 0,
+		id_zone: 0
 	},
 	location: {
-		regions: [],
-		cities: []
+		regions: default_regions,
+		cities: default_cities,
+		zones: default_zones
 	}
 };
 if(typeof propertyTypes !== 'undefined') {
@@ -66,6 +72,10 @@ function wasiLoadProperties() {
 	} else {
 		params.take = properties_per_page;
 	}
+
+
+	params = Object.assign(scope.contact, params);
+	console.log(params);
 
  	getWasiAPIData('/property/search', params).done(function(data) {
  		if(data) {
@@ -190,26 +200,74 @@ function initWasiPropertiesList() {
 		while(match = regex.exec(url)) {
 		    url_params[match[1]] = match[2];
 		}
+
+		var created = wasiLoadProperties;
 		if(Object.keys(url_params).length > 0) {
 			var new_filters = {
 				app_ready: true,
 				filters: url_params
 			};
+
+			if(new_filters.filters.hasOwnProperty('contact-country')) {
+				//debugger;
+				new_filters.contact = Object.assign({}, wasi_data.contact);
+				new_filters.contact.id_country = parseInt(new_filters.filters['contact-country']);
+				delete new_filters.filters['contact-country'];
+
+				if (new_filters.filters.hasOwnProperty('contact-region')) {
+					new_filters.contact.id_region = parseInt(new_filters.filters['contact-region']);
+				}
+
+				if (new_filters.filters.hasOwnProperty('contact-city')) {
+					new_filters.contact.id_city = parseInt(new_filters.filters['contact-city']);
+				}
+
+				var changeZone = function() {
+					if (new_filters.filters.hasOwnProperty('contact-zone')) {
+						wasi_data.contact.id_zone = parseInt(new_filters.filters['contact-zone']);
+					}
+					//wasi_data = Object.assign({}, wasi_data, new_filters);
+					//wasiLoadProperties();
+				};
+				var changeCity = function() {
+					if (new_filters.filters.hasOwnProperty('contact-city')) {
+						wasi_data.contact.id_city = parseInt(new_filters.filters['contact-city']);
+						// delete new_filters.filters['contact-city'];
+						changeLocationCity().then(changeZone);
+					}
+				};
+				var changeRegion = function() {
+					if (new_filters.filters.hasOwnProperty('contact-region')) {
+						wasi_data.contact.id_region = parseInt(new_filters.filters['contact-region']);
+						// delete new_filters.filters['contact-region'];
+						changeLocationRegion().then(changeCity);
+					}
+				};
+				
+				created = function() {
+					wasiLoadProperties();
+					changeLocationCountry().then(changeRegion);
+				}
+			}
 			wasi_data = Object.assign({}, wasi_data, new_filters);
 		}
+
 
 		// VueJS App:
 		wasiApp = new Vue({
 		  el: '#wasiApp',
 		  data: wasi_data,
-		  created: wasiLoadProperties,
+		  created: created,
 		  methods: {
 		  	wasiLoadProperties: wasiLoadProperties,
 		  	paginate: wasiPaginate,
 		  	previousPage: wasiPreviousPage,
 		  	nextPage: wasiNextPage,
 		  	activePageClass: wasiActivePageClass,
-		  	getPropertyType: getPropertyType
+		  	getPropertyType: getPropertyType,
+		  	changeLocationCountry: changeLocationCountry,
+		  	changeLocationRegion: changeLocationRegion,
+		  	changeLocationCity: changeLocationCity
 		  },
 		  filters: {
 		  	formatNumber: function(value) {
@@ -225,6 +283,83 @@ function initWasiPropertiesList() {
 	}
 }
 
+// Render Zones if City changes
+function changeLocationCity() {
+	wasi_data.contact.id_zone = 0;
+	wasi_data.location.zone = default_zones;
+	
+	if(wasi_data.contact.id_city>0) {
+		return getWasiAPIData('/location/zones-from-city/' + wasi_data.contact.id_city).done(function(res){
+			if(res) {
+				var zones = JSON.parse(res);
+				var list = [];
+	 			Object.keys(zones).forEach(function(index) {
+	 				if(!isNaN(index)) {
+	 					list.push( zones[index] );
+	 				}
+	 			});
+	 			wasi_data.location.zones = [...default_zones, ...list];
+			}
+		}).fail(function(err) {
+			console.error('Load cities error:', err);
+		});
+	} else {
+		return jQuery.Deferred().resolve().promise();;
+	}
+}
+
+// Render Cities if region changes
+function changeLocationRegion() {
+	wasi_data.contact.id_city = 0;
+	wasi_data.location.cities = default_cities;
+	
+	if(wasi_data.contact.id_region>0) {
+		return getWasiAPIData('/location/cities-from-region/' + wasi_data.contact.id_region).done(function(res){
+			if(res) {
+				var cities = JSON.parse(res);
+				var list = [];
+	 			Object.keys(cities).forEach(function(index) {
+	 				if(!isNaN(index)) {
+	 					list.push( cities[index] );
+	 				}
+	 			});
+	 			wasi_data.location.cities = [...default_cities, ...list];
+			}
+		}).fail(function(err) {
+			console.error('Load cities error:', err);
+		});
+	} else {
+		return jQuery.Deferred().resolve().promise();;
+	}
+
+}
+
+// Render Regions if country changes
+function changeLocationCountry() {
+	wasi_data.contact.id_region = 0;
+	wasi_data.location.regions = default_regions;
+	if (wasi_data.contact.id_country>0) {
+		return getWasiAPIData('/location/regions-from-country/' + wasi_data.contact.id_country).done(function(res){
+			if(res) {
+				var regions = JSON.parse(res);
+				var list = [];
+	 			Object.keys(regions).forEach(function(index) {
+	 				if(!isNaN(index)) {
+	 					list.push( regions[index] );
+	 				}
+	 			});
+	 			wasi_data.location.regions = [...default_regions, ...list];
+			}
+
+			return true;
+		}).fail(function(err) {
+			console.error('Load regions error:', err);
+		});
+	} else {
+		return jQuery.Deferred().resolve().promise();;
+	}
+}
+
 
 function iniiWasiSearchForm() {
 	if (jQuery('#wasiSearchApp').length>0) {
@@ -232,7 +367,10 @@ function iniiWasiSearchForm() {
 		  el: '#wasiSearchApp',
 		  data: wasi_data,
 		  methods: {
-		  	wasiSearchProperties: wasiSearchProperties
+		  	wasiSearchProperties: wasiSearchProperties,
+		  	changeLocationCountry: changeLocationCountry,
+		  	changeLocationRegion: changeLocationRegion,
+		  	changeLocationCity: changeLocationCity
 		  }
 		});
 	}
@@ -247,48 +385,9 @@ function iniiWasiContactForm() {
 		  methods: {
 		  	wasiContactOwner: wasiContactOwner,
 		  	changeLocationCountry: changeLocationCountry,
-		  	changeLocationRegion: changeLocationRegion
+		  	changeLocationRegion: changeLocationRegion,
+		  	changeLocationCity: changeLocationCity
 		  }
-		});
-	}
-
-	function changeLocationRegion() {
-		getWasiAPIData('/location/cities-from-region/' + wasi_data.contact.id_region).done(function(res){
-			if(res) {
-				var cities = JSON.parse(res);
-				var list = [];
-	 			Object.keys(cities).forEach(function(index) {
-	 				if(!isNaN(index)) {
-	 					list.push( cities[index] );
-	 				}
-	 			});
-	 			wasi_data.location.cities = list;
-			} else {
-				wasi_data.location.cities = [];
-			}
-		}).fail(function(err) {
-			wasi_data.location.cities = [];
-			console.error('Load cities error:', err);
-		});
-	}
-
-	function changeLocationCountry() {
-		getWasiAPIData('/location/regions-from-country/' + wasi_data.contact.id_country).done(function(res){
-			if(res) {
-				var regions = JSON.parse(res);
-				var list = [];
-	 			Object.keys(regions).forEach(function(index) {
-	 				if(!isNaN(index)) {
-	 					list.push( regions[index] );
-	 				}
-	 			});
-	 			wasi_data.location.regions = list;
-			} else {
-				wasi_data.location.regions = [];
-			}
-		}).fail(function(err) {
-			wasi_data.location.regions = [];
-			console.error('Load regions error:', err);
 		});
 	}
 

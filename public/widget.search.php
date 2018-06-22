@@ -29,6 +29,7 @@ class Search_Widget extends WP_Widget {
         }
         $this->api_data = get_option( 'wasi_api_data' );
         $properties_slug = get_post($this->api_data['properties_page'])->post_name;
+        $wasiCountries = $this->api->getCountries();
         include('views/search.php');
         echo $args['after_widget'];
     }

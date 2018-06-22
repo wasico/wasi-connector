@@ -223,6 +223,10 @@ class Wasi_Connector_Public {
 			}
 		}
 
+		$vars .= 'var default_region_name="'.__('Select region', 'wasico').'";';
+		$vars .= 'var default_city_name="'.__('Select city', 'wasico').'";';
+		$vars .= 'var default_zone_name="'.__('Select zone', 'wasico').'";';
+
 		// return $vars;
 		echo '<script>'.$vars.'</script>';
 	}
