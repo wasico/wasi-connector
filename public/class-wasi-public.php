@@ -119,6 +119,7 @@ class Wasi_Connector_Public {
 		// if(!$atts) { $atts = []; }
 		$atts = [];
 
+		ob_start();
 		$id_property = $this->getSingleIdProperty();
 		if ($id_property>0) {
 
@@ -126,14 +127,14 @@ class Wasi_Connector_Public {
 				// this should never be executed... is only in a remote case!
 				$this->single_property = $this->api->getProperty($id_property);
 			}
-			
+			// die("<pre>".print_r($this->single_property, true)."</pre>");
 			// set this var to be used in the template:
 			$single_property = $this->single_property;
 			$wasi_lang = $this->lang_context;
 			$property_types = $this->api->getPropertyTypes();
 
 			// allow theme override single-property
-			if ( $overridden_template = locate_template( 'single-property.php' ) ) {
+			if ( $overridden_template = locate_template( 'single-property-wasi.php' ) ) {
 			   // load_template( $overridden_template );
 				require_once($overridden_template);
 			} else {
@@ -143,6 +144,9 @@ class Wasi_Connector_Public {
 		} else {
 			echo __('Property not found!', $this->lang_context);
 		}
+
+		$out = ob_get_clean();
+    	return $out;
 	}
 
 	/**  Render SEARCH Widget **/
@@ -176,9 +180,9 @@ class Wasi_Connector_Public {
 
 	public function enqueue_scripts() {
 		$vue = 'vue.min.js';
-		if(strpos($_SERVER['HTTP_HOST'], 'local')>=0) {
+		/* if(strpos($_SERVER['HTTP_HOST'], 'local')>=0) {
 			$vue = 'vue.js';
-		}
+		} */
 		$vue_url = plugin_dir_url( __FILE__ ) . 'js/libs/'.$vue;
 		wp_enqueue_script( 'vuejs', $vue_url, array( 'jquery' ), '2.5.6', true );
 

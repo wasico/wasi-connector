@@ -180,8 +180,8 @@ class Wasi_Contact_Widget extends WP_Widget {
     public function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( !empty( $new_instance['title'] ) ) ? $new_instance['title'] : '';
-        $instance['formClass'] = ( !empty( $new_instance['formClass'] ) ) ? sanitize_title( $new_instance['formClass'] ) : '';
-        $instance['submitClass'] = ( !empty( $new_instance['submitClass'] ) ) ? sanitize_title( $new_instance['submitClass'] ) : '';
+        $instance['formClass'] = ( !empty( $new_instance['formClass'] ) ) ? $new_instance['formClass'] : '';
+        $instance['submitClass'] = ( !empty( $new_instance['submitClass'] ) ) ? $new_instance['submitClass'] : '';
 
         return $instance;
     }
