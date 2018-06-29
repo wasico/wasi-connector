@@ -29,11 +29,19 @@ class WasiAPICient {
             echo "Invalid endpoint params!";
             wp_die();
         }
+        
         $filters = isset($_POST['api_data']) ? $_POST['api_data'] : array();
         if( isset($filters['for_type']) ) {
-            $filters[ $filters['for_type'] ] = true;
+            $filters[ $filters['for_type'] ] = 'true';
             unset( $filters['for_type'] );
         }
+        // clean unused filters:
+        foreach ($filters as $key => $value) {
+            if($value==='0' || empty($value)) {
+                unset($filters[$key]);
+            }
+        }
+
         $p = $this->callAPI($_POST['endpoint'], $filters);
         echo json_encode($p);
         wp_die();
