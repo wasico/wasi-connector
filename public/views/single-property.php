@@ -15,7 +15,7 @@
                 if (is_object($value)) {
                     if(empty($value->description)) { $value->description = 'img'.$key; }
                     // echo "<pre>".print_r($value, true)."</pre>";
-                    $images_html.= "\n<img src='{$value->url}' "
+                    $images_html.= "<img src='{$value->url}' "
                         ."data-image='{$value->url_big}' "
                         ."alt='{$value->description}' >";
                 }
