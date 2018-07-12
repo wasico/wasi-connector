@@ -75,7 +75,6 @@ function wasiLoadProperties() {
 
 
 	params = Object.assign(scope.contact, params);
-	console.log(params);
 
  	getWasiAPIData('/property/search', params).done(function(data) {
  		if(data) {
@@ -100,7 +99,7 @@ function wasiLoadProperties() {
  			});
  			// console.log('Props:', list);
  			list.forEach(function(prop){
- 				if(prop.galleries && typeof prop.galleries[0][0]!=='undefined') {
+ 				if(prop.galleries && prop.galleries[0] && typeof prop.galleries[0][0]!=='undefined') {
  					prop.thumbnail = {
  						backgroundImage: 'url('+prop.galleries[0][0].url+')'
  					};

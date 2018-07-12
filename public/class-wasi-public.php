@@ -198,7 +198,7 @@ class Wasi_Connector_Public {
 
 		// add data before JS plugin
 		// $js_vars = ;
-		add_action( 'wp_footer', array($this, 'createPublicJSvars'));
+		add_action( 'wp_footer', array($this, 'createPublicJSvars'), 1);
 		// wp_add_inline_script($this->plugin_name, $js_vars, 'before');
 	}
 
