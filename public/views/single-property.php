@@ -25,6 +25,7 @@
                 <script>
                     jQuery(document).ready(function(){
                         var g = jQuery("#wasi_gallery");
+                        g.find('br').remove();
                         g.unitegallery();
                         g.css('visibility', 'visible');
                     });

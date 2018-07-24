@@ -11,7 +11,7 @@
 
     <article class="listing-container" v-for="prop in properties" v-cloak>
         <div class="listing-column"> <!-- class featured in case of define any way to detect it -->
-            <a v-bind:href="'/<?php echo $atts['propertyPage']; ?>/'+prop.id_property" 
+            <a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" 
                 class="listing-column-image" v-bind:style="prop.thumbnail">
             </a>
             <div class="listing-column-label-top listing-column-label-top-left"
@@ -24,7 +24,7 @@
             </div>
 
             <div class="listing-column-title">
-                <h3><a v-bind:href="'/<?php echo $atts['propertyPage']; ?>/'+prop.id_property" >{{prop.title}}</a></h3>
+                <h3><a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" >{{prop.title}}</a></h3>
             </div>
 
             <div class="listing-column-content">
@@ -33,7 +33,7 @@
                     <li><?php _e('Rooms', 'wasico'); ?>: {{prop.bedrooms}}</li>
                     <li><?php _e('Bathrooms', 'wasico'); ?>: {{prop.bathrooms}}</li>
                 </ul>
-                <a v-bind:href="'/<?php echo $atts['propertyPage']; ?>/'+prop.id_property" 
+                <a v-bind:href="'<?php echo home_url('/').$atts['propertyPage']; ?>/'+prop.id_property" 
                     class="<?php echo $atts['btn-class'] ?>"><?php _e('More info', 'wasico'); ?></a>
             </div>
         </div>

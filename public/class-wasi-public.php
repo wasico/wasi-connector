@@ -64,7 +64,7 @@ class Wasi_Connector_Public {
 				$post->post_title = $this->single_property->title;
 				$post->post_content = ''; // removed post content to load it from Wasi property on the_content
 				$post->post_date = $this->single_property->created_at;
-				add_filter('the_content', array($this, 'wasiSingleProperty'));
+				add_filter('the_content', array($this, 'wasiSingleProperty'), 1);
 
 				// add script gallery only on this page
 				$unite_js_url = plugin_dir_url( __FILE__ ) . 'gallery/js/unitegallery.js';
@@ -136,10 +136,10 @@ class Wasi_Connector_Public {
 			// allow theme override single-property
 			if ( $overridden_template = locate_template( 'single-property-wasi.php' ) ) {
 			   // load_template( $overridden_template );
-				require_once($overridden_template);
+				include($overridden_template);
 			} else {
 			   // load_template( dirname( __FILE__ ) . '/views/single-property.php' );
-				require_once(dirname( __FILE__ ) . '/views/single-property.php');
+				include(dirname( __FILE__ ) . '/views/single-property.php');
 			}
 		} else {
 			echo __('Property not found!', $this->lang_context);
@@ -151,18 +151,18 @@ class Wasi_Connector_Public {
 
 	/**  Render SEARCH Widget **/
 	public function initWasiWidgets() {
-		require_once("widget.search.php");
+		include("widget.search.php");
 		$searchWidget = new Search_Widget($this->lang_context, $this->api);
 		register_widget( $searchWidget );
 
 
-		require_once("widget.contact.php");
+		include("widget.contact.php");
 		$contactWidget = new Wasi_Contact_Widget($this, $this->api);
 		register_widget( $contactWidget );
 	}
 
 	public function initSearchShortcode( $atts ) {
-		require_once("shortcode.search.php");
+		include("shortcode.search.php");
 
 		return renderWasiSearch( $this, $atts );
 	}
