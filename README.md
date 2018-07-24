@@ -124,6 +124,6 @@ Ver más información en https://api.wasi.co/guide/index.html
 
 ## Changelog ##
 
-### 1.0 ###
+### 1.1.2 ###
 * Versión inicial del plugin
 
