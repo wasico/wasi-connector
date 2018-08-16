@@ -457,6 +457,9 @@
 .listings-not-found {
   margin-top: 40px;
 }
+.listings-row .pagination {
+  clear: both; /* ensure pagination always have a new line around it */
+}
 .listings-row .pagination .active a {
   font-weight: bold; }
 

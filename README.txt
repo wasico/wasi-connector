@@ -76,6 +76,12 @@ Este widget cuenta con los mismos atributos del widget del buscador:
 - submitClass: Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”
 
 
+== Sobreescribir plantilla de Detalles de Propiedad ==
+
+Una de las opciones avanzadas del plugin, es permitir la edición de la plantilla de la vista de detalles de la propiedad. Esto se puede hacer creando un archivo nuevo en la raiz del theme y que se llame `single-property-wasi.php`
+El contenido HTML de este archivo debe ser copiado desde el template propio del plugin que se enceuntra en el archivo `public/views/single-property.php` dentro de la carpeta del plugin.
+Las modificaciones que se realizen en el archivo copiado en el theme serán leidas y se usarán en vez de la vista por defecto del plugin.
+
 
 == Traducción del plugin ==
 
