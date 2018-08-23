@@ -111,10 +111,19 @@ function wasiLoadProperties() {
  			});
 
  			scope.properties = list;
+
+ 			if (scope.total_pages>0) {
+ 				var nav = jQuery('.nav-container');
+ 				if (nav.hasClass('hidden')) {
+ 					nav.removeClass('hidden');
+ 				}
+ 			}
  		}
  	}).fail(function(err) {
  		console.error(err);
  	}).always(function() {
+
+ 		//show pagination:
  		if( !scope.app_ready ) {
  			jQuery('#wasiApp').find('.hidden').removeClass('hidden');
  			scope.app_ready = true;

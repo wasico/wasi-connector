@@ -4,14 +4,14 @@
  * Wasi Connector plugin
  *
  * @link              wasi.co
- * @since             1.1.3
+ * @since             1.1.4
  * @package           Wasi_Connector
  *
  * @wordpress-plugin
  * Plugin Name:       Wasi Connector
  * Plugin URI:        https://api.wasi.co/
  * Description:       Plugin to convert your website into a Real Estate Listing site using your properties on Wasi.co
- * Version:           1.1.3
+ * Version:           1.1.4
  * Author:            WasiCo, Inc
  * Author URI:        wasi.co
  * License:           Commercial
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'WASICO_VERSION', '1.1.3' );
+define( 'WASICO_VERSION', '1.1.4' );
 
 /**
  * The code that runs during plugin activation.
