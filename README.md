@@ -117,11 +117,7 @@ El plugin tiene una memoria temporal que se refresca cada 1 día, si quieres ref
 
 ### Mi pregunta no se ha respondido aquí ###
 
-Puedes contactarnos desde nuestra página de soporte: https://wasi.co/app-contactenos.htm
-O puedes dejar tu soliticud directo en la página de desarrollo del plugin: https://github.com/wasico/wasi-connector
-
-Ver más información en https://api.wasi.co/guide/index.html
-
+Puedes dejar tu soliticud directo en la página de desarrollo del plugin: https://github.com/wasico/wasi-connector
 
 
 ## Changelog ##
