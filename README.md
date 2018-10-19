@@ -14,6 +14,8 @@ Este plugin permite a un sitio web en WordPress conectarse a la API de https://w
 
 Para esto necesita tener una cuenta en Wasi y obtener las “Credenciales de API“ en el menú “Configuración > Ajustes Generales“,  sí no encuentra cómo generarlas por favor contáctenos al correo soporte@wasi.co
 
+Este plugin no es realizado directamente por Wasi y es un aporte externo para ayudar a otros programadores conectar wasi a sitios web con Wordpress por lo que no cuenta con soporte desde Wasi.
+
 
 ## Instalación ##
 
