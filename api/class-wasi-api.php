@@ -192,6 +192,7 @@ class WasiAPICient {
                 $cache_days = 1;
             }
             // by default enable trans for requests without params or only with pagination (take param)
+            
             if(empty($params) || (count($params)===1 && isset($params['take']))) {
 
                 $url_trans_name .= isset($params['take']) ? '_'.$params['take'] : '';
@@ -229,6 +230,7 @@ class WasiAPICient {
             }
 
             $url = $this->API_URL . $url;
+            // die("<pre>".print_r($url, true)."</pre>");
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_FAILONERROR, true);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

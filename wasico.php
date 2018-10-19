@@ -4,7 +4,7 @@
  * Wasi Connector plugin
  *
  * @link              wasi.co
- * @since             1.1.4
+ * @since             1.1.5
  * @package           Wasi_Connector
  *
  * @wordpress-plugin
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'WASICO_VERSION', '1.1.4' );
+define( 'WASICO_VERSION', '1.1.5' );
 
 /**
  * The code that runs during plugin activation.
