@@ -6,7 +6,7 @@
  * @since      1.0.0
  *
  * @package    Wasi_Connector
- * @subpackage Wasi_Connector/includes
+ * @subpackage Wasi_Connector/init
  */
 
 /**
@@ -16,7 +16,7 @@
  *
  * @since      1.0.0
  * @package    Wasi_Connector
- * @subpackage Wasi_Connector/includes
+ * @subpackage Wasi_Connector/init
  * @author     WasiCo, Inc <soporte@wasi.co>
  */
 class Wasi_Connector_Activator {
