@@ -1,4 +1,5 @@
-# Wasi Connector #
+# Wasi Connector
+
 **Contributors:** jalamprea  
 **Tags:** comments, spam  
 **Requires at least:** 4.0  
@@ -8,7 +9,7 @@
 
 Plugin que permite conectar y mostrar un listado de propiedades inmobiliarias desde Wasi.co
 
-## Descripción ##
+## Descripción
 
 Este plugin permite a un sitio web en WordPress conectarse a la API de https://wasi.co y convertirlo en un sitio web especializado para ofertar inmuebles.
 
@@ -17,24 +18,24 @@ Para esto necesita tener una cuenta en Wasi y obtener las “Credenciales de API
 Este plugin no es realizado directamente por Wasi, es un aporte externo para ayudar a otros programadores a conectar Wasi a sitios web con Wordpress por lo que no cuenta con soporte desde Wasi.
 
 
-## Instalación ##
+## Instalación
 
 1. Subir el plugin `wasi-connector` a la carpeta `/wp-content/plugins/`
 2. Activar el plugin a través del menú lateral 'Plugins' en WordPress
-3. **Crear las páginas para:** Listado completo de propiedades y para una Propiedad única  
-4. En dichas páginas agregar los shortcodes necesarios (Ver sección de shortcodes)
+3. **Crear las páginas para:** Listado completo de propiedades y para una Propiedad única.
+4. En dichas páginas agregar los shortcodes necesarios ([Ver sección de shortcodes](#configuraciones-de-shortcodes-y-widgets))
 5. En el menú de Ajustes (Settings), ir a las configuración de Wasi y configurar todos los valores.
 
 
-## Configuración del API Key (Llave de API) ##
+## Configuración del API Key (Llave de API)
 
 En el menú de “Ajustes (Settings)“, ir al submenú de “API Wasi.co” y guardar allí los dos valores principales: **ID Company y Wasi Token.**
 Ambos deben ser generados desde tu propia cuenta de Wasi en el menú “Configuración > Ajustes Generales“.
 
-Puedes aprender más sobre la API aqui: https://api.wasi.co/guide/es/first_steps/access.html
+Puedes aprender más sobre la API aqui: http://api.wasi.co/docs/guide/
 
 
-## Ajustes principales del plugin ##
+## Ajustes principales del plugin
 
 En el menú de WP de Ajustes, submenú de “API Wasi.co”, además de la API, se encuentran las siguientes configuraciones:
 
@@ -48,15 +49,12 @@ En el menú de WP de Ajustes, submenú de “API Wasi.co”, además de la API, 
 
 - La duración (en días) de la memoria cache temporal del plugin. Por defecto viene de 1 días, pero puede cambiar a un valor entre 1 y 365. Esto tendrá efecto solo si después de guardar el valor, se limpia la cache con el botón "Clear Plugin Cache" para eliminar los datos actuales y refrescar toda la cache.
 
-
-
-## Configuraciones de Shortcodes y Widgets ##
+## Configuraciones de Shortcodes y Widgets
 
 El plugin cuenta con varios shortcodes y widgets importantes para su funcionamiento. Los más importantes son el shortcode para mostrar las propiedades y el shortcode o widget para mostrar el buscador de propiedades.
 A continuación los detalles de cada uno.
 
-
-### Shortcode de propiedades ###
+### Shortcode de propiedades
 
 El más importante es el shortcode [wasi-properties] el cual es el encargado de mostrar el listado completo de propiedades de wasi.co.  Este shortcode tiene varios atributos de personalización que permiten modificar su agregar filtros y modificar su layout.
 Ejemplo:
@@ -70,8 +68,7 @@ Estos atributos son:
 **- btn-class:**  Define la clase CSS que se le va a aplicar al botón de más información. Por defecto es "btn btn-primary" (las cuales son las clases compatibles por defecto con Bootstrap) Si algún theme quiere cambiarlo como en el ejemplo, lo puede hacer.  
 **- tags-bg-color:** Define el color de fondo de los tags encima de la imagen cuando se usa el layout tipo grid. Si no se pone nada, por defecto va el azul de wasi: #194C9A  
 
-
-### Shortcode y Widget para el Buscador ###
+### Shortcode y Widget para el Buscador
 
 El buscador de propiedades puede ser mostrado a través de un Widget o a través de un shortcode en alguna página aparte.
 Tanto el Widget como el shortcode contienen los mismos atributos:
@@ -80,7 +77,7 @@ Tanto el Widget como el shortcode contienen los mismos atributos:
 **- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”  
 La forma más recomendada de mostrar el buscador es a través de un widget en algún sidebar del theme.
 
-### Widget para el formulario de Contacto ###
+### Widget para el formulario de Contacto
 
 Cada propiedad tiene un formulario de contacto propio. El cual permite que los visitantes diligencien un formulario y sus datos sean asignados al Agente Inmobiliario a cargo de la propiedad, además de que le llegará un e-mail con la respectiva notificación.
 Este widget cuenta con los mismos atributos del widget del buscador:
@@ -88,40 +85,55 @@ Este widget cuenta con los mismos atributos del widget del buscador:
 **- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: “row”  
 **- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”  
 
-## Sobreescribir plantilla de Detalles de Propiedad ##
+## Sobreescribir plantilla de Detalles de Propiedad
 
 Una de las opciones avanzadas del plugin, es permitir la edición de la plantilla de la vista de detalles de la propiedad. Esto se puede hacer creando un archivo nuevo en la raiz del theme y que se llame `single-property-wasi.php`
 
 El contenido HTML de este archivo debe ser copiado desde el template propio del plugin que se encuentra en el archivo `public/views/single-property.php` dentro de la carpeta del plugin.
 Las modificaciones que se realizen en el archivo copiado en el theme serán leidas y se usarán en vez de la vista por defecto del plugin.
 
-
-
-## Traducción del plugin ##
+## Traducción del plugin
 
 Por defecto el plugin viene en idioma inglés, pero cuenta con la plantilla de cadenas y todo el soporte para agregar cualquier idioma, ya sea a través de algún plugin o con un programa de edición de cadenas.
 
 El método más recomendado para traducir este plugin es utilizar un plugin de traducción. El más recomendado es Loco Translate (https://wordpress.org/plugins/loco-translate/).
 Al instalar ese plugin, en la sección de plugins estará activo el plugin de Wasi para ser traducido. Allí se podrá ver todas las cadenas de texto y agregar las traducciones de cada uno de las que sean necesarias.
 
+## Preguntas Frecuentes
 
-## Preguntas Frecuentes ##
-
-### Puedo personalizar la interfaz gráfica del plugin  ###
+### Puedo personalizar la interfaz gráfica del plugin
 
 Si claro, desde tu plantilla/theme de wordpress puedes sobrescribir todos los estilos CSS necesarios.
 
-### Si hago cambios en mis propiedades de wasi, ¿porque no se ven en mi sitio? ###
+### Si hago cambios en mis propiedades de wasi, ¿porque no se ven en mi sitio?
 
 El plugin tiene una memoria temporal que se refresca cada 1 día, si quieres refrescarla  manualmente, puedes hacerlo dentro de las configuraciones del plugin usando el botón de "Clear plugin Cache"
 
-### Mi pregunta no se ha respondido aquí ###
+### ¿Por qué cuando cambio el path para la vista de la propiedad no me funciona?
+
+Debes ir a Ajustes/Enlaces permantes y guardar sin cambios para refrescar el enrutamiento de WordPress.
+
+### Mi pregunta no se ha respondido aquí
 
 Puedes dejar tu soliticud directo en la página de desarrollo del plugin: https://github.com/wasico/wasi-connector
 
+## Contribución
 
-## Changelog ##
+Para contribuir debes seguir los siguientes pasos:
+- Hacer un fork de este proyecto.
+- Utilizar un proyecto wordpress existente o crear uno, clonar el fork en la carpeta `/wp-content/plugins/`.
+- Crear una rama con el nombre de la funcionalidad que va a realizar.
+- Realizar los cambios pertinentes.
+- Crear un Pull Request con la rama que utilizó para los cambios.
 
-### 1.1.5 ###
+Además debe tener en cuenta seguir la [guía de estilos de WordPress](https://github.com/WordPress/WordPress-Coding-Standards)
+
+
+## Changelog
+
+### 2.0.0
+* Corrección de enrutamiento en WordPress >= 5.4
+
+### 1.1.5
 * Versión inicial del plugin
 

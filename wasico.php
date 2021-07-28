@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Wasi Connector plugin
  *
@@ -11,7 +10,7 @@
  * Plugin Name:       Wasi Connector
  * Plugin URI:        https://api.wasi.co/
  * Description:       Plugin to convert your website into a Real Estate Listing site using your properties on Wasi.co
- * Version:           1.1.4
+ * Version:           2.0.0
  * Author:            WasiCo, Inc
  * Author URI:        wasi.co
  * License:           Commercial
@@ -19,13 +18,15 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) { die; }
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'WASICO_VERSION', '1.1.5' );
+define( 'WASICO_VERSION', '2.0.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -56,7 +57,14 @@ require plugin_dir_path( __FILE__ ) . 'init/class-wasi-connector.php';
 
 $wasi_plugin = new Wasi_Connector();
 
-function get_wasi_property_type($id_type) {
-    global $wasi_plugin;
-    return $wasi_plugin->plugin_public->getAPIClient()->getPropertyType($id_type);
+/**
+ * Fetch the specified property type.
+ *
+ * @param integer|string $id_type The property type ID.
+ *
+ * @return string The property type name.
+ */
+function get_wasi_property_type( $id_type ) {
+	global $wasi_plugin;
+	return $wasi_plugin->plugin_public->get_api_client()->get_property_type( $id_type );
 }
