@@ -1,26 +1,37 @@
 <?php
+/**
+ * The properties shortcode. [wasi-search]
+ *
+ * @package    Wasi_Connector
+ */
 
-// shortocode: [wasi-properties]
-function renderWasiSearch( $parent, $instance ) {
-
-	if ( isset( $instance['formclass'] ) ) {
-		$instance['formClass'] = $instance['formclass'];
+/**
+ * The search shortcode render.
+ *
+ * @param Wasi_Connector_Public $parent The parent class.
+ * @param array                 $atts The shortcode attributes.
+ *
+ * @return string
+ */
+function render_wasi_search( $parent, $atts ) {
+	if ( isset( $atts['formclass'] ) ) {
+		$atts['formClass'] = $atts['formclass'];
 	}
-	if ( isset( $instance['submitclass'] ) ) {
-		$instance['submitClass'] = $instance['submitclass'];
+	if ( isset( $atts['submitclass'] ) ) {
+		$atts['submitClass'] = $atts['submitclass'];
 	}
 
-	$instance = shortcode_atts(
+	$atts = shortcode_atts(
 		array(
 			'formClass'   => 'row',
 			'submitClass' => 'btn btn-primary',
 		),
-		$instance,
+		$atts,
 		'wasi-search'
 	);
 
-	if ( ! $instance ) {
-		$instance = array();
+	if ( ! $atts ) {
+		$atts = array();
 	}
 	$property_status = $parent->get_api_client()->get_property_status();
 	$property_types  = $parent->get_api_client()->get_property_types();

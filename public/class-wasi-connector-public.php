@@ -264,7 +264,7 @@ class Wasi_Connector_Public {
 	 */
 	public function init_search_shortcode( $atts ) {
 		include 'shortcode.search.php';
-		return renderWasiSearch( $this, $atts );
+		return render_wasi_search( $this, $atts );
 	}
 
 	/**
