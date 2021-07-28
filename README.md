@@ -13,7 +13,7 @@ Plugin que permite conectar y mostrar un listado de propiedades inmobiliarias de
 
 Este plugin permite a un sitio web en WordPress conectarse a la API de https://wasi.co y convertirlo en un sitio web especializado para ofertar inmuebles.
 
-Para esto necesita tener una cuenta en Wasi y obtener las “Credenciales de API“ en el menú “Configuración > Ajustes Generales“,  sí no encuentra cómo generarlas por favor contáctenos al correo soporte@wasi.co
+Para esto necesita tener una cuenta en Wasi y obtener las "Credenciales de API" en el menú "[Configuración > Ajustes Generales](https://wasi.co/administrador/configuracion/general)",  sí no encuentra cómo generarlas por favor contáctenos al correo soporte@wasi.co
 
 Este plugin no es realizado directamente por Wasi, es un aporte externo para ayudar a otros programadores a conectar Wasi a sitios web con Wordpress por lo que no cuenta con soporte desde Wasi.
 
@@ -29,15 +29,15 @@ Este plugin no es realizado directamente por Wasi, es un aporte externo para ayu
 
 ## Configuración del API Key (Llave de API)
 
-En el menú de “Ajustes (Settings)“, ir al submenú de “API Wasi.co” y guardar allí los dos valores principales: **ID Company y Wasi Token.**
-Ambos deben ser generados desde tu propia cuenta de Wasi en el menú “Configuración > Ajustes Generales“.
+En el menú de "Ajustes (Settings)", ir al submenú de "API Wasi.co” y guardar allí los dos valores principales: **ID Company** y **Wasi Token.**
+Ambos deben ser generados desde tu propia cuenta de Wasi en el menú "[Configuración > Ajustes Generales](https://wasi.co/administrador/configuracion/general)".
 
 Puedes aprender más sobre la API aqui: http://api.wasi.co/docs/guide/
 
 
 ## Ajustes principales del plugin
 
-En el menú de WP de Ajustes, submenú de “API Wasi.co”, además de la API, se encuentran las siguientes configuraciones:
+En el menú de WP de Ajustes, submenú de "API Wasi.co”, además de la API, se encuentran las siguientes configuraciones:
 
 - El valor numérico del total de propiedades a mostrar por cada página cuando hayan resultados de búsquedas.
 
@@ -45,7 +45,7 @@ En el menú de WP de Ajustes, submenú de “API Wasi.co”, además de la API, 
 
 - Otra lista de páginas para seleccionar la página encargada de mostrar la información de cada propiedad de manera independiente. El contenido de esta página será ignorado por completo y se mostrará la información de la propiedad que sea pasada desde el listado de propiedades.
 
-- Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica “Bootstrap 3.6” la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
+- Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica "Bootstrap 3.6” la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
 
 - La duración (en días) de la memoria cache temporal del plugin. Por defecto viene de 1 días, pero puede cambiar a un valor entre 1 y 365. Esto tendrá efecto solo si después de guardar el valor, se limpia la cache con el botón "Clear Plugin Cache" para eliminar los datos actuales y refrescar toda la cache.
 
@@ -62,7 +62,7 @@ Ejemplo:
 
 Estos atributos son:
 
-**- layout:** que puede ser "list" o "grid"  (el grid siempre es de 3 columnas) Por defecto es tipo “list”  
+**- layout:** que puede ser "list" o "grid"  (el grid siempre es de 3 columnas) Por defecto es tipo "list”  
 **- featured:** que puede ser "true" o "false". Sirve para mostrar solo las propiedades marcadas como destacadas. Por defecto es false.  
 **- limit:** Es opcional, define cuantas propiedades va a mostrar. El valor por defecto aplicar es el que esté definido en las configuraciones iniciales del plugin (Inicialmente 10)  
 **- btn-class:**  Define la clase CSS que se le va a aplicar al botón de más información. Por defecto es "btn btn-primary" (las cuales son las clases compatibles por defecto con Bootstrap) Si algún theme quiere cambiarlo como en el ejemplo, lo puede hacer.  
@@ -73,8 +73,8 @@ Estos atributos son:
 El buscador de propiedades puede ser mostrado a través de un Widget o a través de un shortcode en alguna página aparte.
 Tanto el Widget como el shortcode contienen los mismos atributos:
 
-**- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: “row”  
-**- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”  
+**- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: "row”  
+**- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: "btn btn-primary”  
 La forma más recomendada de mostrar el buscador es a través de un widget en algún sidebar del theme.
 
 ### Widget para el formulario de Contacto
@@ -82,8 +82,8 @@ La forma más recomendada de mostrar el buscador es a través de un widget en al
 Cada propiedad tiene un formulario de contacto propio. El cual permite que los visitantes diligencien un formulario y sus datos sean asignados al Agente Inmobiliario a cargo de la propiedad, además de que le llegará un e-mail con la respectiva notificación.
 Este widget cuenta con los mismos atributos del widget del buscador:
 
-**- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: “row”  
-**- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: “btn btn-primary”  
+**- formClass:** Clase CSS que se aplica al formulario principal para controlar su layout. Por defecto: "row”  
+**- submitClass:** Clase CSS que se aplica al botón de búsqueda. Por defecto: "btn btn-primary”  
 
 ## Sobreescribir plantilla de Detalles de Propiedad
 
@@ -111,7 +111,7 @@ El plugin tiene una memoria temporal que se refresca cada 1 día, si quieres ref
 
 ### ¿Por qué cuando cambio el path para la vista de la propiedad no me funciona?
 
-Debes ir a Ajustes/Enlaces permantes y guardar sin cambios para refrescar el enrutamiento de WordPress.
+Debes ir a "Ajustes > Enlaces permantes" y guardar sin cambios para refrescar el enrutamiento de WordPress.
 
 ### Mi pregunta no se ha respondido aquí
 
