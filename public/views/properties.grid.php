@@ -22,7 +22,7 @@
 				class="listing-column-image" v-bind:style="prop.thumbnail">
 			</a>
 			<div class="listing-column-label-top listing-column-label-top-left"
-				style="<?php echo esc_attr( ! empty( $atts['tags-bg-color'] ) ? 'background-color:' . $atts['tags-bg-color'] : '' ); ?>">{{ get_property_type(prop.id_property_type) }}</div>
+				style="<?php echo esc_attr( ! empty( $atts['tags-bg-color'] ) ? 'background-color:' . $atts['tags-bg-color'] : '' ); ?>">{{ getPropertyType(prop.id_property_type) }}</div>
 			<div class="listing-column-label-special"
 				style="<?php echo esc_attr( ! empty( $atts['tags-bg-color'] ) ? 'background-color:' . $atts['tags-bg-color'] : '' ); ?>">
 				<span v-if="prop.for_sale=='true' && prop.sale_price>0">{{ prop.sale_price | formatNumber }} {{ prop.iso_currency }}</span>
