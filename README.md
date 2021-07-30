@@ -41,9 +41,9 @@ En el menú de WP de Ajustes, submenú de "API Wasi.co", además de la API, se e
 
 - El valor numérico del total de propiedades a mostrar por cada página cuando hayan resultados de búsquedas.
 
-- Una lista desplegable que permite definir cuál será la página donde se mostrará todo el listado completo de propiedades y los resultados de las búsquedas. Esta página debe estar creada con anterioridad y debe tener en su contenido el shortcode [wasi-properties]  (Ver configuraciones de shortcodes).
+- Una lista desplegable que permite definir cuál será la página donde se mostrará todo el listado completo de propiedades y los resultados de las búsquedas. Esta página debe estar creada con anterioridad y debe tener en su contenido el shortcode [wasi-properties]  ([Ver configuraciones de shortcodes](#configuraciones-de-shortcodes-y-widgets)).
 
-- Otra lista de páginas para seleccionar la página encargada de mostrar la información de cada propiedad de manera independiente. El contenido de esta página será ignorado por completo y se mostrará la información de la propiedad que sea pasada desde el listado de propiedades.
+- Un campo para indicar la URL con la cual se va a mostrar la información de cada propiedad de manera independiente.
 
 - Un checkbox para permitir seleccionar si se quiere cargar la librería gráfica "Bootstrap 3.6" la cual contiene las clases gráficas necesarias para mostrar el layout del plugin de manera correcta. Activar esta opción solo si su plantilla/theme no tiene ya por defecto activo esta librería gráfica.
 
