@@ -260,7 +260,7 @@ class Wasi_Api_Client {
 	 * @return array|WP_Error
 	 */
 	public function add_customer( $customer ) {
-		$c = $this->call_api( '/customer/add', $customer );
+		$c = $this->call_api( '/client/add', $customer );
 		if ( is_wp_error( $c ) ) {
 			$query = array( 'query' => $customer['email'] );
 			$cli   = $this->call_api( '/client/search', $query );
