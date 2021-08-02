@@ -107,8 +107,7 @@ class Wasi_Connector_Public {
 	 */
 	public function wasi_single_page( $template ) {
 		global $post;
-		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-		if ( strpos( $uri, $this->get_single_path() ) !== false ) {
+		if ( $this->is_single_property_page() ) {
 			$id_property = $this->get_single_id_property();
 			if ( is_numeric( $id_property ) && 0 !== $id_property ) {
 				$this->single_property = $this->api->get_property( $id_property );
@@ -156,6 +155,16 @@ class Wasi_Connector_Public {
 	 */
 	public function get_api_client() {
 		return $this->api;
+	}
+
+	/**
+	 * Verify if the current page is the single property page.
+	 *
+	 * @return boolean
+	 */
+	private function is_single_property_page() {
+		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+		return strpos( $uri, $this->get_single_path() ) !== false;
 	}
 
 	/**
@@ -326,7 +335,7 @@ class Wasi_Connector_Public {
 		}
 		$vars .= 'var properties_per_page=' . $this->api_data['wasi_max_per_page'] . ';';
 
-		if ( is_page() ) {
+		if ( $this->is_single_property_page() ) {
 			$id_property = $this->get_single_id_property();
 			if ( $id_property > 0 ) {
 				if ( null === $this->single_property ) {
