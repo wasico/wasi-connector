@@ -30,19 +30,19 @@ define( 'WASICO_VERSION', '2.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in init/class-wasi-activator.php
+ * This action is documented in init/class-wasi-connector-activator.php
  */
 function activate_wasi_connector() {
-	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-connector-activator.php';
 	Wasi_Connector_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in init/class-wasi-deactivator.php
+ * This action is documented in init/class-wasi-connector-deactivator.php
  */
 function deactivate_wasi_connector() {
-	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-connector-deactivator.php';
 	Wasi_Connector_Deactivator::deactivate();
 }
 
