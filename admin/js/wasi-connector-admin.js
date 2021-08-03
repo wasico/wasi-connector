@@ -46,10 +46,8 @@
 			url: ajaxurl,
 			data: params
 		}).done(function(res){
-			// console.log('Aamzing!!', res);
 			msg.html('Removed '+res.total+' files in cache!');
 		}).fail(function(err){
-			// console.log('ERROR Clearing cache:', err);
 			msg.html('ERROR:' + err);
 		});
 		return false;

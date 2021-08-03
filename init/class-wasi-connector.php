@@ -1,4 +1,13 @@
 <?php
+/**
+ * The core plugin class.
+ *
+ * @link       wasi.co
+ * @since      1.0.0
+ *
+ * @package Wasi_Connector
+ * @subpackage Wasi_Connector/init
+ */
 
 /**
  * The core plugin class.
@@ -11,74 +20,105 @@
  *
  * @since      1.0.0
  * @package    Wasi_Connector
- * @subpackage Wasi_Connector/includes
+ * @subpackage Wasi_Connector/init
  * @author     WasiCo, Inc <soporte@wasi.co>
  */
 class Wasi_Connector {
 
 
-	// The unique identifier of this plugin.
+	/**
+	 * The unique identifier of this plugin.
+	 *
+	 * @var string
+	 */
 	protected $plugin_name;
 
-	// The current version of the plugin.
+	/**
+	 * The current version of the plugin.
+	 *
+	 * @var string
+	 */
 	protected $version;
 
-	// Language Context
+	/**
+	 * Language Context
+	 *
+	 * @var string
+	 */
 	protected $lang_context;
 
-	// API Connector
+	/**
+	 * API Connector
+	 *
+	 * @var Wasi_Api_Client
+	 */
 	private $api;
 
-	// internals:
+	/**
+	 * The admin-specific class instance.
+	 *
+	 * @var Wasi_Connector_Admin
+	 */
 	private $plugin_admin;
+
+	/**
+	 * The public-facing class instance.
+	 *
+	 * @var Wasi_Connector_Public
+	 */
 	public $plugin_public;
 
-
+	/**
+	 * The instance of this class.
+	 */
 	public function __construct() {
 		if ( defined( 'WASICO_VERSION' ) ) {
 			$this->version = WASICO_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'wasi-connector';
+		$this->plugin_name  = 'wasi-connector';
 		$this->lang_context = 'wasico';
-
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_public_hooks();
 
-		if(is_admin()) {
+		if ( is_admin() ) {
 			$this->define_admin_hooks();
 		}
-
 	}
 
 	/**
 	 * Load common, admin and public dependencies for this plugin.
 	 */
 	private function load_dependencies() {
-		// API Connector
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'api/class-wasi-api.php';
-		$this->api = new WasiAPICient($this->lang_context);
+		// API Connector.
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'api/class-wasi-api-client.php';
+		$this->api = new Wasi_Api_Client( $this->lang_context );
 
-		// Admin Settings
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wasi-admin.php';
+		// Admin Settings.
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wasi-connector-admin.php';
 
-		// Widgets, shortcodes, and public templates
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wasi-public.php';
+		// Includes widgets, shortcodes, and public templates.
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wasi-connector-public.php';
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 */
 	private function set_locale() {
-		add_action( 'plugins_loaded', array($this, 'load_plugin_textdomain') );
+		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 	}
 
+	/**
+	 * Load the plugin text domain for translation.
+	 *
+	 * @return void
+	 */
 	public function load_plugin_textdomain() {
 		$rel_path = dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/';
-		load_plugin_textdomain('wasico', false, $rel_path);
+		load_plugin_textdomain( 'wasico', false, $rel_path );
 	}
 
 
@@ -93,8 +133,8 @@ class Wasi_Connector {
 
 		$this->plugin_admin = new Wasi_Connector_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		add_action( 'admin_enqueue_scripts', array($this->plugin_admin, 'enqueue_styles') );
-		add_action( 'admin_enqueue_scripts', array($this->plugin_admin, 'enqueue_scripts') );
+		add_action( 'admin_enqueue_scripts', array( $this->plugin_admin, 'enqueue_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this->plugin_admin, 'enqueue_scripts' ) );
 
 	}
 
@@ -107,18 +147,18 @@ class Wasi_Connector {
 	 */
 	private function define_public_hooks() {
 
-		$this->plugin_public = new Wasi_Connector_Public( 
+		$this->plugin_public = new Wasi_Connector_Public(
 			$this->get_plugin_name(),
-			$this->get_version(),
-			$this->lang_context );
+			$this->get_version()
+		);
 
-		$this->plugin_public->setAPIClient($this->api);
+		$this->plugin_public->set_api_client( $this->api );
 
-		add_action( 'wp_enqueue_scripts', array($this->plugin_public, 'enqueue_styles') );
-		add_action( 'wp_enqueue_scripts', array($this->plugin_public, 'enqueue_scripts') );
+		add_action( 'wp_enqueue_scripts', array( $this->plugin_public, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this->plugin_public, 'enqueue_scripts' ) );
 
+		$this->add_rewrite_rule();
 	}
-
 
 	/**
 	 * The name of the plugin used to uniquely identify it within the context of
@@ -142,4 +182,29 @@ class Wasi_Connector {
 		return $this->version;
 	}
 
+	/**
+	 * Add rewrite rule for the plugin.
+	 *
+	 * @return void
+	 */
+	private function add_rewrite_rule() {
+		$path = $this->plugin_public->get_single_path();
+		if ( empty( $path ) ) {
+			return;
+		}
+		add_action(
+			'init',
+			function () use ( $path ) {
+				add_rewrite_rule( "$path/([a-z0-9-]+)[/]?$", "index.php?$path=\$matches[1]", 'top' );
+			}
+		);
+
+		add_filter(
+			'query_vars',
+			function( $query_vars ) use ( $path ) {
+				$query_vars[] = $path;
+				return $query_vars;
+			}
+		);
+	}
 }

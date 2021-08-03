@@ -1,33 +1,46 @@
 <?php
+/**
+ * The properties shortcode. [wasi-search]
+ *
+ * @package    Wasi_Connector
+ */
 
-// shortocode: [wasi-properties]
-function renderWasiSearch($parent, $instance) {
+/**
+ * The search shortcode render.
+ *
+ * @param Wasi_Connector_Public $parent The parent class.
+ * @param array                 $atts The shortcode attributes.
+ *
+ * @return string
+ */
+function render_wasi_search( $parent, $atts ) {
+	if ( isset( $atts['formclass'] ) ) {
+		$atts['formClass'] = $atts['formclass'];
+	}
+	if ( isset( $atts['submitclass'] ) ) {
+		$atts['submitClass'] = $atts['submitclass'];
+	}
 
-    if(isset($instance['formclass'])) {
-        $instance['formClass'] = $instance['formclass'];
-    }
-    if(isset($instance['submitclass'])) {
-        $instance['submitClass'] = $instance['submitclass'];
-    }
+	$atts = shortcode_atts(
+		array(
+			'formClass'   => 'row',
+			'submitClass' => 'btn btn-primary',
+		),
+		$atts,
+		'wasi-search'
+	);
 
-    $instance = shortcode_atts(
-        array(
-            'formClass' => 'row',
-            'submitClass' => 'btn btn-primary'
-        ), $instance, 'wasi-search' );
+	if ( ! $atts ) {
+		$atts = array();
+	}
+	$property_status = $parent->get_api_client()->get_property_status();
+	$property_types  = $parent->get_api_client()->get_property_types();
+	$wasi_countries  = $parent->get_api_client()->get_countries();
 
-    if(!$instance) { $instance = []; }
-        
-    $propertyStatus = $parent->getAPIClient()->getPropertyStatus();
-    $propertyTypes = $parent->getAPIClient()->getPropertyTypes();
-    $wasiCountries = $parent->getAPIClient()->getCountries();
-    // $atts['propertyTypes'] = $parent->getAPIClient()->getPropertyTypes();
-    // $atts['propertyPage'] = get_post($parent->getWasiData()['property_single_page'])->post_name;
+	ob_start();
 
-    ob_start();
+	require_once 'views/search.php';
 
-    require_once('views/search.php');
-
-    $out = ob_get_clean();
-    return $out;
+	$out = ob_get_clean();
+	return $out;
 }

@@ -1,26 +1,25 @@
 <?php
-
 /**
- * Fired during plugin deactivation
+ * Fired during plugin activation
  *
  * @link       wasi.co
  * @since      1.0.0
  *
  * @package    Wasi_Connector
- * @subpackage Wasi_Connector/includes
+ * @subpackage Wasi_Connector/init
  */
 
 /**
- * Fired during plugin deactivation.
+ * Fired during plugin activation.
  *
- * This class defines all code necessary to run during the plugin's deactivation.
+ * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
  * @package    Wasi_Connector
- * @subpackage Wasi_Connector/includes
+ * @subpackage Wasi_Connector/init
  * @author     WasiCo, Inc <soporte@wasi.co>
  */
-class Wasi_Connector_Deactivator {
+class Wasi_Connector_Activator {
 
 	/**
 	 * Short Description. (use period)
@@ -29,7 +28,7 @@ class Wasi_Connector_Deactivator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function deactivate() {
+	public static function activate() {
 
 	}
 
