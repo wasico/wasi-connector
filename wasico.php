@@ -10,7 +10,7 @@
  * Plugin Name:       Wasi Connector
  * Plugin URI:        https://api.wasi.co/
  * Description:       Plugin to convert your website into a Real Estate Listing site using your properties on Wasi.co
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            WasiCo, Inc
  * Author URI:        wasi.co
  * License:           Commercial
@@ -26,23 +26,23 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'WASICO_VERSION', '2.0.0' );
+define( 'WASICO_VERSION', '2.0.1' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in init/class-wasi-activator.php
+ * This action is documented in init/class-wasi-connector-activator.php
  */
 function activate_wasi_connector() {
-	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-connector-activator.php';
 	Wasi_Connector_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in init/class-wasi-deactivator.php
+ * This action is documented in init/class-wasi-connector-deactivator.php
  */
 function deactivate_wasi_connector() {
-	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'init/class-wasi-connector-deactivator.php';
 	Wasi_Connector_Deactivator::deactivate();
 }
 
