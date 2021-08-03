@@ -72,7 +72,7 @@ msgstr ""
 msgid "Cache duration in days"
 msgstr ""
 
-#: public/widget.contact.php:109
+#: public/class-wasi-contact-widget.php:109
 msgid "Thank you for your message! We will contact you shortly."
 msgstr ""
 

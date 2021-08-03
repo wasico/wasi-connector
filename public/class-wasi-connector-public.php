@@ -259,7 +259,7 @@ class Wasi_Connector_Public {
 		$search_widget = new Wasi_Search_Widget( $this->api );
 		register_widget( $search_widget );
 
-		include 'widget.contact.php';
+		include 'class-wasi-contact-widget.php';
 		$contact_widget = new Wasi_Contact_Widget( $this, $this->api );
 		register_widget( $contact_widget );
 	}
