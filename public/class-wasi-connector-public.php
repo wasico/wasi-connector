@@ -133,7 +133,11 @@ class Wasi_Connector_Public {
 				$unite_css_url = plugin_dir_url( __FILE__ ) . 'gallery/themes/default/ug-theme-default.css';
 				wp_enqueue_script( 'unitejs-theme', $unite_js_url, array( 'unitejs' ), '1.7.28', true );
 				wp_enqueue_style( 'unitecss-theme', $unite_css_url, array( 'unitecss' ), '1.7.28', 'all' );
-				return get_template_directory() . '/page.php';
+				$directory = get_template_directory();
+				if (file_exists("$directory/page.php")) {
+					return "$directory/page.php";
+				}
+				return get_page_template();
 			}
 		}
 		return $template;
@@ -164,7 +168,11 @@ class Wasi_Connector_Public {
 	 */
 	private function is_single_property_page() {
 		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-		return strpos( $uri, $this->get_single_path() ) !== false;
+		$single_path = $this->get_single_path();
+		if ( empty( $single_path ) ) {
+			return false;
+		}
+		return strpos( $uri,  $single_path) !== false;
 	}
 
 	/**
