@@ -133,7 +133,11 @@ class Wasi_Connector_Public {
 				$unite_css_url = plugin_dir_url( __FILE__ ) . 'gallery/themes/default/ug-theme-default.css';
 				wp_enqueue_script( 'unitejs-theme', $unite_js_url, array( 'unitejs' ), '1.7.28', true );
 				wp_enqueue_style( 'unitecss-theme', $unite_css_url, array( 'unitecss' ), '1.7.28', 'all' );
-				return get_template_directory() . '/page.php';
+				$directory = get_template_directory();
+				if (file_exists("$directory/page.php")) {
+					return "$directory/page.php";
+				}
+				return get_page_template();
 			}
 		}
 		return $template;
