@@ -164,7 +164,11 @@ class Wasi_Connector_Public {
 	 */
 	private function is_single_property_page() {
 		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-		return strpos( $uri, $this->get_single_path() ) !== false;
+		$single_path = $this->get_single_path();
+		if ( empty( $single_path ) ) {
+			return false;
+		}
+		return strpos( $uri,  $single_path) !== false;
 	}
 
 	/**
